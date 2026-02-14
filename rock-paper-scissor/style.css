@@ -1,0 +1,36 @@
+body{
+  font-family:Poppins;
+  /* background:linear-gradient(135deg,#1358d9,#0a68d4); */
+  color:rgb(15, 15, 16);
+  text-align:center;
+  background-color: rgb(80, 84, 84);
+  border: solid black;
+  height: 280px;
+
+}
+
+button{
+  padding:15px;
+  margin:10px;
+  border-radius:50px;
+  border:none;
+  background:rgba(45, 63, 50, 0.901);
+  backdrop-filter:blur(10px);
+  transition:0.3s ease;
+}
+
+button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px white;
+}
+button{padding:10px 20px;margin:10px;}
+
+p , button{
+  color: rgb(243, 233, 233);
+  font-size: medium;
+  font-weight: bold;
+}
+
+div{
+  padding: 20px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Color Catch Game</title>
+<style>
+body{
+  text-align:center;
+  font-family:Arial;
+  background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+}
+h1{color:white;text-shadow:2px 2px 5px black;}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,80px);
+  gap:10px;
+  justify-content:center;
+  margin-top:30px;
+}
+.box{
+  width:80px;height:80px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.box:hover{transform:scale(1.1);}
+#score{font-size:20px;color:white;}
+</style>
+</head>
+<body>
+
+<h1>🎯 Color Catch</h1>
+<p id="score">Score: 0</p>
+<div class="grid" id="game"></div>
+
+<script>
+let score=0;
+let target;
+
+function randomColor(){
+  return "#" + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function createGame(){
+  const game=document.getElementById("game");
+  game.innerHTML="";
+  target=Math.floor(Math.random()*16);
+  for(let i=0;i<16;i++){
+    let div=document.createElement("div");
+    div.className="box";
+    let color=randomColor();
+    if(i==target){
+      div.style.background=color;
+      div.onclick=function(){
+        score++;
+        document.getElementById("score").innerText="Score: "+score;
+        createGame();
+      }
+    }else{
+      div.style.background=randomColor();
+    }
+    game.appendChild(div);
+  }
+}
+createGame();
+</script>
+
+</body>
+</html>
